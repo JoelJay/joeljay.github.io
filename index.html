@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的GitHub Pages</title>
+    <meta name="description" content="这是我的GitHub Pages个人网站">
+    <meta name="keywords" content="GitHub Pages, 个人网站, 博客">
+    <meta name="author" content="你的名字">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://你的用户名.github.io/">
+    <meta property="og:title" content="我的GitHub Pages">
+    <meta property="og:description" content="这是我的GitHub Pages个人网站">
+    <meta property="og:image" content="https://你的用户名.github.io/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://你的用户名.github.io/">
+    <meta property="twitter:title" content="我的GitHub Pages">
+    <meta property="twitter:description" content="这是我的GitHub Pages个人网站">
+    <meta property="twitter:image" content="https://你的用户名.github.io/assets/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">我的网站</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link active">首页</a>
+                <a href="/about" class="nav-link">关于我</a>
+                <a href="/blog" class="nav-link">博客</a>
+                <a href="/projects" class="nav-link">项目</a>
+                <a href="/contact" class="nav-link">联系我</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 英雄区域 -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">欢迎来到我的GitHub Pages</h1>
+                    <p class="hero-description">
+                        这里是我的个人网站，展示我的项目、博客和技术分享。
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/projects" class="btn btn-primary">查看项目</a>
+                        <a href="/blog" class="btn btn-secondary">阅读博客</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/assets/images/hero-image.jpg" alt="Hero Image" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色内容 -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">特色内容</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>技术分享</h3>
+                        <p>分享编程经验、技术教程和最佳实践</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>项目展示</h3>
+                        <p>展示我的开源项目和个人作品</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <h3>博客文章</h3>
+                        <p>记录学习心得和生活感悟</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新文章 -->
+        <section class="latest-posts">
+            <div class="container">
+                <h2 class="section-title">最新文章</h2>
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/assets/images/post-1.jpg" alt="文章标题" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/blog/post-1">如何搭建GitHub Pages网站</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                详细介绍如何使用GitHub Pages创建和部署个人网站...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">2024年1月15日</span>
+                                <span class="post-category">技术</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/assets/images/post-2.jpg" alt="文章标题" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/blog/post-2">前端开发最佳实践</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                分享前端开发中的一些最佳实践和技巧...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">2024年1月10日</span>
+                                <span class="post-category">前端</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我</h3>
+                    <p>热爱技术的开发者，喜欢分享和学习新知识。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/about">关于我</a></li>
+                        <li><a href="/blog">博客</a></li>
+                        <li><a href="/projects">项目</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>社交媒体</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/你的用户名" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/你的用户名" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/你的用户名" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 我的GitHub Pages. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

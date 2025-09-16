@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客 - 我的GitHub Pages</title>
+    <meta name="description" content="我的技术博客，分享编程经验和技术教程">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .blog-content {
+            padding: 80px 0;
+        }
+        
+        .blog-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #3498db;
+            background: transparent;
+            color: #3498db;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .blog-content-card {
+            padding: 1.5rem;
+        }
+        
+        .blog-title {
+            margin-bottom: 1rem;
+        }
+        
+        .blog-title a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .blog-title a:hover {
+            color: #3498db;
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .blog-read-time {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        
+        .pagination a,
+        .pagination span {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            color: #666;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination a:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .pagination .current {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">我的网站</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">首页</a>
+                <a href="/about" class="nav-link">关于我</a>
+                <a href="/blog" class="nav-link active">博客</a>
+                <a href="/projects" class="nav-link">项目</a>
+                <a href="/contact" class="nav-link">联系我</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 博客英雄区域 -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>技术博客</h1>
+            <p>分享编程经验、技术教程和最佳实践</p>
+        </div>
+    </section>
+
+    <!-- 博客内容 -->
+    <section class="blog-content">
+        <div class="container">
+            <!-- 分类筛选 -->
+            <div class="blog-filters">
+                <button class="filter-btn active" data-category="all">全部</button>
+                <button class="filter-btn" data-category="frontend">前端</button>
+                <button class="filter-btn" data-category="backend">后端</button>
+                <button class="filter-btn" data-category="tools">工具</button>
+                <button class="filter-btn" data-category="tutorial">教程</button>
+            </div>
+
+            <!-- 博客文章网格 -->
+            <div class="blog-grid">
+                <article class="blog-card" data-category="tutorial">
+                    <div class="blog-image">
+                        <img src="/assets/images/post-1.jpg" alt="如何搭建GitHub Pages网站" loading="lazy">
+                        <div class="blog-category">教程</div>
+                    </div>
+                    <div class="blog-content-card">
+                        <h2 class="blog-title">
+                            <a href="/blog/how-to-setup-github-pages">如何搭建GitHub Pages网站</a>
+                        </h2>
+                        <p class="blog-excerpt">
+                            详细介绍如何使用GitHub Pages创建和部署个人网站，包括域名配置、SSL证书设置等高级功能。
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>2024年1月15日</span>
+                            </div>
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock"></i>
+                                <span>5分钟阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="frontend">
+                    <div class="blog-image">
+                        <img src="/assets/images/post-2.jpg" alt="前端开发最佳实践" loading="lazy">
+                        <div class="blog-category">前端</div>
+                    </div>
+                    <div class="blog-content-card">
+                        <h2 class="blog-title">
+                            <a href="/blog/frontend-best-practices">前端开发最佳实践</a>
+                        </h2>
+                        <p class="blog-excerpt">
+                            分享前端开发中的一些最佳实践和技巧，包括代码组织、性能优化、可访问性等方面。
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>2024年1月10日</span>
+                            </div>
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock"></i>
+                                <span>8分钟阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="backend">
+                    <div class="blog-image">
+                        <img src="/assets/images/post-3.jpg" alt="Node.js性能优化技巧" loading="lazy">
+                        <div class="blog-category">后端</div>
+                    </div>
+                    <div class="blog-content-card">
+                        <h2 class="blog-title">
+                            <a href="/blog/nodejs-performance-optimization">Node.js性能优化技巧</a>
+                        </h2>
+                        <p class="blog-excerpt">
+                            探讨Node.js应用性能优化的各种方法，包括内存管理、异步处理、缓存策略等。
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>2024年1月5日</span>
+                            </div>
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock"></i>
+                                <span>12分钟阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="tools">
+                    <div class="blog-image">
+                        <img src="/assets/images/post-4.jpg" alt="Git工作流最佳实践" loading="lazy">
+                        <div class="blog-category">工具</div>
+                    </div>
+                    <div class="blog-content-card">
+                        <h2 class="blog-title">
+                            <a href="/blog/git-workflow-best-practices">Git工作流最佳实践</a>
+                        </h2>
+                        <p class="blog-excerpt">
+                            介绍团队协作中的Git工作流最佳实践，包括分支策略、提交规范、代码审查等。
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>2023年12月28日</span>
+                            </div>
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock"></i>
+                                <span>6分钟阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="frontend">
+                    <div class="blog-image">
+                        <img src="/assets/images/post-5.jpg" alt="CSS Grid布局完全指南" loading="lazy">
+                        <div class="blog-category">前端</div>
+                    </div>
+                    <div class="blog-content-card">
+                        <h2 class="blog-title">
+                            <a href="/blog/css-grid-complete-guide">CSS Grid布局完全指南</a>
+                        </h2>
+                        <p class="blog-excerpt">
+                            深入讲解CSS Grid布局系统，包括基本概念、属性详解和实际应用案例。
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>2023年12月20日</span>
+                            </div>
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock"></i>
+                                <span>15分钟阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card" data-category="tutorial">
+                    <div class="blog-image">
+                        <img src="/assets/images/post-6.jpg" alt="从零开始学习React" loading="lazy">
+                        <div class="blog-category">教程</div>
+                    </div>
+                    <div class="blog-content-card">
+                        <h2 class="blog-title">
+                            <a href="/blog/learn-react-from-scratch">从零开始学习React</a>
+                        </h2>
+                        <p class="blog-excerpt">
+                            适合初学者的React学习教程，从基础概念到实际项目开发，循序渐进。
+                        </p>
+                        <div class="blog-meta">
+                            <div class="blog-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>2023年12月15日</span>
+                            </div>
+                            <div class="blog-read-time">
+                                <i class="fas fa-clock"></i>
+                                <span>20分钟阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <span class="current">1</span>
+                <a href="/blog?page=2">2</a>
+                <a href="/blog?page=3">3</a>
+                <a href="/blog?page=2">下一页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我</h3>
+                    <p>热爱技术的开发者，喜欢分享和学习新知识。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/about">关于我</a></li>
+                        <li><a href="/blog">博客</a></li>
+                        <li><a href="/projects">项目</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>社交媒体</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/你的用户名" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/你的用户名" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/你的用户名" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 我的GitHub Pages. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // 博客分类筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // 更新按钮状态
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 筛选文章
+                    blogCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
