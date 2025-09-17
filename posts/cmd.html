@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系我 - Liangjie's Blog</title>
-    <meta name="description" content="有任何问题或建议，欢迎与我联系">
+    <title>Windows 使用过的cmd命令 - Liangjie's Blog</title>
+    <meta name="description" content="记录一下用到过的CMD命令">
     <link rel="icon" type="image/x-icon" href="/img/hello.jpg">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,7 +21,7 @@
                 <a href="/about" class="nav-link">关于我</a>
                 <a href="/blog" class="nav-link">博客</a>
                 <a href="/projects" class="nav-link">项目</a>
-                <a href="/contact" class="nav-link active">联系我</a>
+                <a href="/contact" class="nav-link">联系我</a>
             </div>
             <div class="nav-toggle" id="nav-toggle">
                 <span class="bar"></span>
@@ -31,66 +31,54 @@
         </div>
     </nav>
 
-    <div class="contact-header">
-        <div class="container">
-            <h1>联系我</h1>
-            <p>有任何问题或建议，欢迎与我联系</p>
-        </div>
-    </div>
-
-    <div class="contact-content">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>联系方式</h2>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>邮箱</h3>
-                            <p>huangliangjie110@163.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <div>
-                            <h3>GitHub</h3>
-                            <p><a href="https://github.com/joeljay" target="_blank">github.com/joeljay</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <div>
-                            <h3>LinkedIn</h3>
-                            <p><a href="https://linkedin.com/in/your_linkedin" target="_blank">linkedin.com/in/your_linkedin</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h2>发送消息</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">姓名</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">邮箱</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">主题</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">消息</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">发送消息</button>
-                    </form>
-                </div>
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">Windows 使用过的cmd命令</h1>
+            <div class="post-meta">
+                <time datetime="2014-03-11">2014年03月11日</time>
+                <span class="post-category">
+                    <a href="/categories/tools">Tools</a>
+                </span>
             </div>
+        </header>
+        
+        <div class="post-content">
+            <p><strong>#持续更新,先占坑</strong></p>
+
+            <p>记录一下用到过的CMD命令</p>
+
+            <h3>cd 命令</h3>
+            <pre><code>cd foldername        进入foldername目录
+cd /d path           进入具体目录
+cd \                 进入根目录
+cd ..                返回上级目录</code></pre>
+
+            <h3>ipconfig命令</h3>
+            <pre><code>ipconfig             IP 配置信息显示IP地址、子网掩码和缺省网关值
+ipconfig /all        显示本机TCP/IP配置详细信息</code></pre>
+
+            <h3>文件操作命令</h3>
+            <pre><code># 创建目录
+mkdir [drive:] path
+md [drive:] path
+chdir path           进入子目录path
+
+move                 移动文件
+type                 显示文件内容（可创建文件）
+type                 可用于合并文件内容： type *.txt > all.txt</code></pre>
+
+            <p>对于各命令的其他可选项通过 /? 查看帮助文档即可</p>
         </div>
-    </div>
+        
+        <footer class="post-footer">
+            <div class="post-navigation">
+                <a href="/blog" class="prev-post">
+                    <i class="fas fa-arrow-left"></i>
+                    返回博客列表
+                </a>
+            </div>
+        </footer>
+    </article>
 
     <!-- 页脚 -->
     <footer class="footer">

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系我 - Liangjie's Blog</title>
-    <meta name="description" content="有任何问题或建议，欢迎与我联系">
+    <title>Git error Refspec master matches more than one - Liangjie's Blog</title>
+    <meta name="description" content="Git push时出现Refspec master matches more than one错误的解决方案">
     <link rel="icon" type="image/x-icon" href="/img/hello.jpg">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,7 +21,7 @@
                 <a href="/about" class="nav-link">关于我</a>
                 <a href="/blog" class="nav-link">博客</a>
                 <a href="/projects" class="nav-link">项目</a>
-                <a href="/contact" class="nav-link active">联系我</a>
+                <a href="/contact" class="nav-link">联系我</a>
             </div>
             <div class="nav-toggle" id="nav-toggle">
                 <span class="bar"></span>
@@ -31,66 +31,55 @@
         </div>
     </nav>
 
-    <div class="contact-header">
-        <div class="container">
-            <h1>联系我</h1>
-            <p>有任何问题或建议，欢迎与我联系</p>
-        </div>
-    </div>
-
-    <div class="contact-content">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>联系方式</h2>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>邮箱</h3>
-                            <p>huangliangjie110@163.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <div>
-                            <h3>GitHub</h3>
-                            <p><a href="https://github.com/joeljay" target="_blank">github.com/joeljay</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <div>
-                            <h3>LinkedIn</h3>
-                            <p><a href="https://linkedin.com/in/your_linkedin" target="_blank">linkedin.com/in/your_linkedin</a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h2>发送消息</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">姓名</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">邮箱</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">主题</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">消息</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">发送消息</button>
-                    </form>
-                </div>
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">Git error Refspec master matches more than one</h1>
+            <div class="post-meta">
+                <time datetime="2015-01-30">2015年01月30日</time>
+                <span class="post-category">
+                    <a href="/categories/git">Git</a>
+                </span>
             </div>
+            <div class="post-tags">
+                <span class="tag">Git</span>
+            </div>
+        </header>
+        
+        <div class="post-content">
+            <p>写完代码commit之后，通过Android Studio的集成git工具想要Push代码到远程仓库。</p>
+            <p>结果发现刚刚commit的代码未出现在Push列表里，列表空空如也。倍感疑惑，既然继承工具不能成功。</p>
+
+            <p>只好使用Git 命令去push，但是出现了如下的错误：</p>
+
+            <pre><code>$ git push origin master
+error: src refspec master matches more than one.
+fatal: Authentication failed for 'host/liangjie/someproject.git'</code></pre>
+
+            <p>经过一段时间的摸索，终于发现了问题所在：</p>
+
+            <pre><code>$ git tag
+6.0test
+master</code></pre>
+
+            <p>由于某个小伙伴创建了一个用来测试的master tag，所以出现了"Refspec master matches more than one"。</p>
+
+            <p>解决方式很简单，删除这个用于测试的master tag(-__-)b就可以了。</p>
+
+            <pre><code>$ git tag -d master
+Deleted tag 'master' (was 138c31a)</code></pre>
+
+            <p><strong>Notice:</strong> 打tag的时候名称最好不要同分支名称一致，否则就会出现上诉错误。</p>
         </div>
-    </div>
+        
+        <footer class="post-footer">
+            <div class="post-navigation">
+                <a href="/blog" class="prev-post">
+                    <i class="fas fa-arrow-left"></i>
+                    返回博客列表
+                </a>
+            </div>
+        </footer>
+    </article>
 
     <!-- 页脚 -->
     <footer class="footer">

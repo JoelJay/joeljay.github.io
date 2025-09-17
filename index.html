@@ -1,89 +1,268 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liangjie's Blog</title>
+    <meta name="description" content="个人技术博客，分享编程经验和技术心得">
+    <meta name="keywords" content="技术博客, 编程, 开发, 学习">
+    <meta name="author" content="Joel">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://joeljay.github.io/">
+    <meta property="og:title" content="Liangjie's Blog">
+    <meta property="og:description" content="个人技术博客，分享编程经验和技术心得">
+    <meta property="og:image" content="https://joeljay.github.io/img/hello.jpg">
 
-<!-- 英雄区域 -->
-<section class="hero">
-    <div class="hero-container">
-        <div class="hero-content">
-            <h1 class="hero-title">欢迎来到{{ site.title }}</h1>
-            <p class="hero-description">
-                {{ site.description }}
-            </p>
-            <div class="hero-buttons">
-                <a href="{{ '/blog' | relative_url }}" class="btn btn-primary">阅读博客</a>
-                <a href="{{ '/about' | relative_url }}" class="btn btn-secondary">关于我</a>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://joeljay.github.io/">
+    <meta property="twitter:title" content="Liangjie's Blog">
+    <meta property="twitter:description" content="个人技术博客，分享编程经验和技术心得">
+    <meta property="twitter:image" content="https://joeljay.github.io/img/hello.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/hello.jpg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">Liangjie's Blog</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link active">首页</a>
+                <a href="/about" class="nav-link">关于我</a>
+                <a href="/blog" class="nav-link">博客</a>
+                <a href="/projects" class="nav-link">项目</a>
+                <a href="/contact" class="nav-link">联系我</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="{{ '/img/hello.jpg' | relative_url }}" alt="Hero Image" loading="lazy">
-        </div>
-    </div>
-</section>
+    </nav>
 
-<!-- 特色内容 -->
-<section class="features">
-    <div class="container">
-        <h2 class="section-title">特色内容</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>技术分享</h3>
-                <p>分享编程经验、技术教程和最佳实践</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-project-diagram"></i>
-                </div>
-                <h3>项目展示</h3>
-                <p>展示我的开源项目和个人作品</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-blog"></i>
-                </div>
-                <h3>博客文章</h3>
-                <p>记录学习心得和生活感悟</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 最新文章 -->
-<section class="latest-posts">
-    <div class="container">
-        <h2 class="section-title">最新文章</h2>
-        <div class="posts-grid">
-            {% for post in site.posts limit:6 %}
-            <article class="post-card">
-                <div class="post-image">
-                    {% if post.image %}
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
-                    {% else %}
-                    <img src="{{ '/img/hello.jpg' | relative_url }}" alt="{{ post.title }}" loading="lazy">
-                    {% endif %}
-                </div>
-                <div class="post-content">
-                    <h3 class="post-title">
-                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                    </h3>
-                    <p class="post-excerpt">
-                        {{ post.excerpt | strip_html | truncate: 100 }}
+    <!-- 主要内容 -->
+    <main>
+        <!-- 英雄区域 -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">欢迎来到Liangjie's Blog</h1>
+                    <p class="hero-description">
+                        个人技术博客，分享编程经验和技术心得
                     </p>
-                    <div class="post-meta">
-                        <span class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</span>
-                        {% if post.categories %}
-                        <span class="post-category">{{ post.categories | first }}</span>
-                        {% endif %}
+                    <div class="hero-buttons">
+                        <a href="/blog" class="btn btn-primary">阅读博客</a>
+                        <a href="/about" class="btn btn-secondary">关于我</a>
                     </div>
                 </div>
-            </article>
-            {% endfor %}
+                <div class="hero-image">
+                    <img src="/img/hello.jpg" alt="Hero Image" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色内容 -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">特色内容</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>技术分享</h3>
+                        <p>分享编程经验、技术教程和最佳实践</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>项目展示</h3>
+                        <p>展示我的开源项目和个人作品</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <h3>博客文章</h3>
+                        <p>记录学习心得和生活感悟</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新文章 -->
+        <section class="latest-posts">
+            <div class="container">
+                <h2 class="section-title">最新文章</h2>
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/img/hello.jpg" alt="Hello World" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/posts/hello-world.html">Hello World</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Welcome to Hexo! This is your very first post. Check documentation to learn how to use.
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">2014年01月17日</span>
+                                <span class="post-category">Default</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/img/hello.jpg" alt="Git多账号切换" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/posts/git.html">Git多账号切换</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                有时候会遇到需要使用多个git账号的情况，手动切换是在过于麻烦。于是就有了一下的解决方案...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">2014年03月06日</span>
+                                <span class="post-category">Git</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/img/hello.jpg" alt="Android快捷键" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/posts/android-shortcuts.html">Android快捷键</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Android开发中常用的快捷键和技巧分享...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">2014年01月01日</span>
+                                <span class="post-category">Android</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/img/hello.jpg" alt="命令行工具" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/posts/cmd.html">命令行工具</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                常用的命令行工具和技巧...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">2014年01月01日</span>
+                                <span class="post-category">工具</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/img/hello.jpg" alt="Eclipse快捷键" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/posts/eclipse_short_cuts.html">Eclipse快捷键</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Eclipse开发环境中的常用快捷键...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">2014年01月01日</span>
+                                <span class="post-category">开发工具</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="/img/hello.jpg" alt="Git RefspecError" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <h3 class="post-title">
+                                <a href="/posts/git-RefspecError.html">Git RefspecError</a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Git RefspecError错误的解决方案...
+                            </p>
+                            <div class="post-meta">
+                                <span class="post-date">2014年01月01日</span>
+                                <span class="post-category">Git</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="text-center">
+                    <a href="/blog" class="btn btn-primary">查看更多文章</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我</h3>
+                    <p>热爱技术的开发者，喜欢分享和学习新知识。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/about">关于我</a></li>
+                        <li><a href="/blog">博客</a></li>
+                        <li><a href="/projects">项目</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>社交媒体</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/joeljay" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/your_twitter" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/your_linkedin" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Liangjie's Blog. 保留所有权利.</p>
+            </div>
         </div>
-        <div class="text-center">
-            <a href="{{ '/blog' | relative_url }}" class="btn btn-primary">查看更多文章</a>
-        </div>
-    </div>
-</section>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git多账号切换 - Liangjie's Blog</title>
+    <meta name="description" content="有时候会遇到需要使用多个git账号的情况，手动切换是在过于麻烦。">
+    <link rel="icon" type="image/x-icon" href="/img/hello.jpg">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">Liangjie's Blog</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">首页</a>
+                <a href="/about" class="nav-link">关于我</a>
+                <a href="/blog" class="nav-link">博客</a>
+                <a href="/projects" class="nav-link">项目</a>
+                <a href="/contact" class="nav-link">联系我</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">Git多账号切换</h1>
+            <div class="post-meta">
+                <time datetime="2014-03-06">2014年03月06日</time>
+                <span class="post-category">
+                    <a href="/categories/git">Git</a>
+                </span>
+            </div>
+            <div class="post-tags">
+                <span class="tag">Git</span>
+            </div>
+        </header>
+        
+        <div class="post-content">
+            <p>有时候会遇到需要使用多个git账号的情况，手动切换是在过于麻烦。</p>
+
+            <p>于是就有了一下的解决方案：</p>
+
+            <p>首先，切换到ssh的key目录下：</p>
+            
+            <pre><code>cd ~/.ssh</code></pre>
+
+            <p>然后使用ssh-keygen命令创建一个新的SSH key:</p>
+            
+            <pre><code>ssh-keygen -t rsa -C  "sencond@mail.com" -f id_rsa_second</code></pre>
+
+            <p>其中id_rsa_second表示保存的key的名称,可以自定义，命令执行之后会在.ssh目录里出现两个文件其中id_rsa_second.pub表示公钥。后面会用到。</p>
+
+            <p>由于默认情况下，每次进行SSH连接时默认发送本地钥匙（默认为~/.ssh/id_rsa）。所以之前生成的id_rsa_second在默认情况下是没有被用到的。</p>
+
+            <p>这时就需要在~/.ssh 目录创建config文件，该文件用于配置钥匙对应的服务器信息。具体语法如下：</p>
+
+            <pre><code>Host    别名
+    HostName        主机名
+    Port            端口
+    User            用户名
+    IdentityFile    密钥文件的路径</code></pre>
+
+            <p>其中Host别名自己任意给出，能方便记忆就行。给出一个示例配置以供参考：</p>
+
+            <pre><code># Default github user(first@mail.com)
+Host github.com
+     HostName github.com
+     User git
+     IdentityFile ~/.ssh/id_rsa
+
+# second user(second@mail.com)
+Host github-second
+     HostName github.com
+     User git
+     IdentityFile ~/.ssh/id_rsa_second</code></pre>
+             
+            <p>配置完成之后，在连接非默认账号需要修改一下远程库的地址，</p>
+            <p>如本来的远程库地址为git@github:sencond/test.git</p>
+            <p>现在就需要改为git@github-second:sencond/test.git。</p>
+
+            <p>而且通过 ssh + 别名就能登录远程库</p>
+
+            <h4>注意：</h4>
+            <ol>
+                <li>切换账号的时候要修改相应的配置文件
+                    <pre><code>git config --global user.name 用户名
+git config --global user.email second@email.com</code></pre>
+                </li>
+                <li>在远程端添加前面生成的id_rsa_second.pub的公钥到远程库里。</li>
+                <li>使用对应的ssh key密码。</li>
+            </ol>
+
+            <h3>Enjoy it!</h3>
+        </div>
+        
+        <footer class="post-footer">
+            <div class="post-navigation">
+                <a href="/blog" class="prev-post">
+                    <i class="fas fa-arrow-left"></i>
+                    返回博客列表
+                </a>
+            </div>
+        </footer>
+    </article>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我</h3>
+                    <p>热爱技术的开发者，喜欢分享和学习新知识。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/about">关于我</a></li>
+                        <li><a href="/blog">博客</a></li>
+                        <li><a href="/projects">项目</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>社交媒体</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/joeljay" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/your_twitter" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/your_linkedin" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Liangjie's Blog. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

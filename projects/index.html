@@ -1,77 +1,148 @@
----
-layout: default
-title: 项目
----
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目 - Liangjie's Blog</title>
+    <meta name="description" content="展示我的开源项目和个人作品">
+    <link rel="icon" type="image/x-icon" href="/img/hello.jpg">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">Liangjie's Blog</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">首页</a>
+                <a href="/about" class="nav-link">关于我</a>
+                <a href="/blog" class="nav-link">博客</a>
+                <a href="/projects" class="nav-link active">项目</a>
+                <a href="/contact" class="nav-link">联系我</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
 
-<div class="projects-header">
-    <div class="container">
-        <h1>我的项目</h1>
-        <p>展示我的开源项目和个人作品</p>
+    <div class="projects-header">
+        <div class="container">
+            <h1>我的项目</h1>
+            <p>展示我的开源项目和个人作品</p>
+        </div>
     </div>
-</div>
 
-<div class="projects-content">
-    <div class="container">
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="{{ '/img/hello.jpg' | relative_url }}" alt="项目图片" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>个人博客系统</h3>
-                    <p>基于Jekyll构建的静态博客系统，支持Markdown写作，响应式设计。</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Jekyll</span>
-                        <span class="tech-tag">Markdown</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
+    <div class="projects-content">
+        <div class="container">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/img/hello.jpg" alt="项目图片" loading="lazy">
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-primary">查看项目</a>
-                        <a href="#" class="btn btn-secondary">GitHub</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="{{ '/img/hello.jpg' | relative_url }}" alt="项目图片" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>任务管理应用</h3>
-                    <p>基于React开发的任务管理应用，支持拖拽排序、标签分类等功能。</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Redux</span>
-                        <span class="tech-tag">Material-UI</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-primary">查看项目</a>
-                        <a href="#" class="btn btn-secondary">GitHub</a>
+                    <div class="project-content">
+                        <h3>个人博客系统</h3>
+                        <p>基于Jekyll构建的静态博客系统，支持Markdown写作，响应式设计。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Jekyll</span>
+                            <span class="tech-tag">Markdown</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">查看项目</a>
+                            <a href="#" class="btn btn-secondary">GitHub</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="{{ '/img/hello.jpg' | relative_url }}" alt="项目图片" loading="lazy">
-                </div>
-                <div class="project-content">
-                    <h3>API接口文档</h3>
-                    <p>使用Swagger构建的RESTful API文档，支持在线测试和调试。</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Express</span>
-                        <span class="tech-tag">Swagger</span>
-                        <span class="tech-tag">MongoDB</span>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/img/hello.jpg" alt="项目图片" loading="lazy">
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn btn-primary">查看项目</a>
-                        <a href="#" class="btn btn-secondary">GitHub</a>
+                    <div class="project-content">
+                        <h3>任务管理应用</h3>
+                        <p>基于React开发的任务管理应用，支持拖拽排序、标签分类等功能。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Material-UI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">查看项目</a>
+                            <a href="#" class="btn btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/img/hello.jpg" alt="项目图片" loading="lazy">
+                    </div>
+                    <div class="project-content">
+                        <h3>API接口文档</h3>
+                        <p>使用Swagger构建的RESTful API文档，支持在线测试和调试。</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Swagger</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">查看项目</a>
+                            <a href="#" class="btn btn-secondary">GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我</h3>
+                    <p>热爱技术的开发者，喜欢分享和学习新知识。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/about">关于我</a></li>
+                        <li><a href="/blog">博客</a></li>
+                        <li><a href="/projects">项目</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>社交媒体</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/joeljay" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/your_twitter" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/your_linkedin" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Liangjie's Blog. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
