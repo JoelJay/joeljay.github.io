@@ -8,15 +8,16 @@ plugins:
   - jekyll-feed
 
 # 网站信息
-title: "我的GitHub Pages"
-description: "这是我的GitHub Pages个人网站"
+title: "Liangjie's Blog"
+subtitle: "Welcome to a place of thinker"
+description: "个人技术博客，分享编程经验和技术心得"
 url: "https://joeljay.github.io"
 baseurl: ""
 
 # 作者信息
 author:
-  name: "Joel Jay"
-  email: "your.email@example.com"
+  name: "Joel"
+  email: "huangliangjie110@163.com"
 
 # 社交媒体
 social:
@@ -36,3 +37,33 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - _drafts
+
+# 集合
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# 分页
+paginate: 10
+paginate_path: /page:num/
+
+# 默认布局
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# 时区
+timezone: Asia/Shanghai
+
+# 语言
+lang: zh-CN
