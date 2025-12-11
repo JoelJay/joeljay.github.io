@@ -9,4 +9,17 @@
       "sha256_cert_fingerprints":
       ["DF:48:7D:83:9F:EE:8A:72:B8:81:99:CA:70:C6:C8:36:0D:3B:EE:8E:7C:36:5A:3E:71:DC:C8:36:BC:66:54:8F"]
     }
-  }]
+  },
+{
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.passkeydemo",
+      "sha256_cert_fingerprints":
+      ["3C:D3:09:AB:B8:36:27:24:F6:FE:38:50:AB:5D:28:54:08:87:AB:79:E9:D4:6D:E3:C7:AF:CD:5B:2A:6A:D8:C3"]
+    }
+  }
+]
